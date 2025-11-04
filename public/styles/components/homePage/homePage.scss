@@ -1,0 +1,27 @@
+@use "../../partials/globals" as *;
+@use "../../partials/variables" as *;
+
+h1 {
+  font-weight: 500;
+}
+
+.allPosts {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 75vw;
+
+  hr {
+    border: 0.75px solid rgb(151, 149, 149);
+  }
+}
+
+.post {
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  
+  }
+  
+}

@@ -1,0 +1,11 @@
+@use "../../partials/globals" as *;
+@use "../../partials/variables" as *;
+
+.createPost {
+  &__form {
+    max-width: 75vw;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+  }
+}

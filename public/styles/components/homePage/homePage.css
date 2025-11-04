@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+.allPosts {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 75vw;
+}
+.allPosts hr {
+  border: 0.75px solid rgb(151, 149, 149);
+}
+
+.post__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}/*# sourceMappingURL=homePage.css.map */

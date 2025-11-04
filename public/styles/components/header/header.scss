@@ -1,0 +1,39 @@
+@use "../../partials/globals" as *;
+@use "../../partials/variables" as *;
+
+body {
+  // min-height: ;
+  // background-color: $purple;
+  min-height: 100vh;
+  color: black;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.navbar {
+  display: flex;
+  padding: 1.5rem;
+
+  &__links {
+    display: flex;
+    margin-left: auto;
+    list-style-type: none;
+    gap: 1rem;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    :visited {
+      color: black;
+    }
+  }
+}

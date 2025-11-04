@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  color: black;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  padding: 1.5rem;
+}
+.navbar__links {
+  display: flex;
+  margin-left: auto;
+  list-style-type: none;
+  gap: 1rem;
+}
+.navbar__links a {
+  text-decoration: none;
+  color: black;
+}
+.navbar__links :visited {
+  color: black;
+}/*# sourceMappingURL=header.css.map */

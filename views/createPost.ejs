@@ -1,0 +1,12 @@
+<%- include("partials/header.ejs") %>
+<main class="createPost">
+  <h1>Create a post</h1>
+
+  <form action="/createPost" method="POST" class="createPost__form">
+    <input type="text" name="postTitle" id="postTitle" placeholder="Post title">
+    <textarea name="postContent" id="postContent" placeholder="Write your post here..."></textarea>
+    <button type="submit">Create post</button>
+  </form>
+
+</main>
+<%- include("partials/footer.ejs") %>
