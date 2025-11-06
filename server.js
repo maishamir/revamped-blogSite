@@ -7,6 +7,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let blogPosts = [
+  {
+    postId: uuidv4(),
+    postTitle: "Test post!",
+    postContent:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ratione odio impedit iusto inventore deleniti ut repellat aut qui quae exercitationem architecto deserunt dolorum atque ex, similique itaque. Magni, placeat.",
+  },
+  {
+    postId: uuidv4(),
+    postTitle: "Test post! #2",
+    postContent:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ratione odio impedit iusto inventore deleniti ut repellat aut qui quae exercitationem architecto deserunt dolorum atque ex, similique itaque. Magni, placeat.",
+  },
+];
+
 app.get("/", (req, res) => {
   res.render("index.ejs", { posts: blogPosts });
 });
@@ -46,17 +61,20 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-let blogPosts = [
-  {
-    postId: uuidv4(),
-    postTitle: "Test post!",
-    postContent:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ratione odio impedit iusto inventore deleniti ut repellat aut qui quae exercitationem architecto deserunt dolorum atque ex, similique itaque. Magni, placeat.",
-  },
-  {
-    postId: uuidv4(),
-    postTitle: "Test post! #2",
-    postContent:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ratione odio impedit iusto inventore deleniti ut repellat aut qui quae exercitationem architecto deserunt dolorum atque ex, similique itaque. Magni, placeat.",
-  },
-];
+app.post("/deletePost/:postId", (req, res) => {
+  //find index of item with id to delete
+  const postToDelete = req.params.postId;
+  const postIndex = blogPosts.findIndex((post) => post.postId == postToDelete);
+  console.log(postIndex);
+
+  // if (postIndex !== -1) {
+  //   blogPosts.splice(postIndex, 1);
+  //   res
+  //     .status(200)
+  //     .send(`Post with ID ${req.params.postId} was delete successfully.`);
+  // } else {
+  //   res.status(404).send(`Item with ID ${req.params.postId} was not found.`);
+  // }
+});
+
+function handleDelete() {}

@@ -5,9 +5,16 @@
 
   <div class="allPosts">
     <% posts.forEach(post => { %>
-    <div class="post">
+    <div class="post" id="<%= post.postId %>">
       <p class="post__title"><%= post.postTitle %></p>
       <p class="post__content"><%= post.postContent%></p>
+
+      <div class="buttons">
+        <form action="/deletePost/<%=post.postId%>" method="post">
+          <!-- <input type="hidden" value="<%=post.postId%>" name="postId" /> -->
+          <button type="submit">X</button>
+        </form>
+      </div>
     </div>
     <hr />
     <% }) %>
