@@ -9,4 +9,28 @@
   width: 50vw;
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
+  gap: 1.5rem;
+}
+.createPost__form input, .createPost__form textarea {
+  padding: 0.75rem 1rem;
+  border: 0.5px solid gray;
+  border-radius: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+.createPost__form input:focus, .createPost__form textarea:focus {
+  outline: 1px solid gray;
+}
+.createPost__form textarea {
+  resize: vertical;
+}
+.createPost__form-button {
+  width: 25%;
+  margin-top: 1rem;
+  align-self: center;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.75rem;
 }/*# sourceMappingURL=createPOst.css.map */

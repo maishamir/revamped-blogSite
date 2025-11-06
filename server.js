@@ -74,7 +74,6 @@ app.post("/deletePost", (req, res) => {
   if (postIndex !== -1) {
     blogPosts.splice(postIndex, 1);
     // console
-    //   .log(`Post with ID ${postToDelete} was delete successfully.`);
     res.redirect("/")
   } else {
     console.error(`Item with ID ${req.params.postId} was not found.`);

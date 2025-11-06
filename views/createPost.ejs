@@ -1,11 +1,11 @@
 <%- include("partials/header.ejs") %>
 <main class="createPost">
   <h1>Create a post</h1>
-
+  <a href="/"><--</a>
   <form action="/createPost" method="POST" class="createPost__form">
-    <input type="text" name="postTitle" id="postTitle" placeholder="Post title">
-    <textarea name="postContent" id="postContent" placeholder="Write your post here..."></textarea>
-    <button type="submit">Create post</button>
+    <input type="text" name="postTitle" id="postTitle" placeholder="Post title" required>
+    <textarea name="postContent" id="postContent" placeholder="Write your post here..." rows="10"required ></textarea>
+    <button type="submit" class="createPost__form-button">Create post</button>
   </form>
 
 </main>
