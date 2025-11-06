@@ -1,19 +1,20 @@
 <%- include("partials/header.ejs") %>
 <main>
   <% if (locals.posts) { %>
-    <h1>Posts</h1>
-    
-    <div class="allPosts">
-      <% posts.forEach(post => { %>
-      <div class="post">
-        <p class="post__title"><%= post.postTitle %></p>
-        <p class="post__content"><%= post.postContent%></p>
-      </div>
-      <hr>
-      <% }) %>
+  <h1>Posts</h1>
+
+  <div class="allPosts">
+    <% posts.forEach(post => { %>
+    <div class="post">
+      <p class="post__title"><%= post.postTitle %></p>
+      <p class="post__content"><%= post.postContent%></p>
     </div>
+    <hr />
+    <% }) %>
+  </div>
   <% } else { %>
   <h1>Create posts to see them here!</h1>
   <% } %>
+  <a href="/createPost">Add Post +</a>
 </main>
 <%- include("partials/footer.ejs") %>
