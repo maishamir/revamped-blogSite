@@ -61,20 +61,22 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-app.post("/deletePost/:postId", (req, res) => {
+app.post("/deletePost", (req, res) => {
   //find index of item with id to delete
-  const postToDelete = req.params.postId;
+  // const postToDelete = req.params.postId;
+  // console.log(postIndex);
+  const postToDelete = req.body.postId;
+
   const postIndex = blogPosts.findIndex((post) => post.postId == postToDelete);
-  console.log(postIndex);
+  // console.log(typeof (blogPosts[0].postId))
+  console.log(postIndex)
 
-  // if (postIndex !== -1) {
-  //   blogPosts.splice(postIndex, 1);
-  //   res
-  //     .status(200)
-  //     .send(`Post with ID ${req.params.postId} was delete successfully.`);
-  // } else {
-  //   res.status(404).send(`Item with ID ${req.params.postId} was not found.`);
-  // }
+  if (postIndex !== -1) {
+    blogPosts.splice(postIndex, 1);
+    // console
+    //   .log(`Post with ID ${postToDelete} was delete successfully.`);
+    res.redirect("/")
+  } else {
+    console.error(`Item with ID ${req.params.postId} was not found.`);
+  }
 });
-
-function handleDelete() {}
