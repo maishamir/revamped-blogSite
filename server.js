@@ -22,18 +22,22 @@ let blogPosts = [
   },
 ];
 
+// Homepage route
 app.get("/", (req, res) => {
   res.render("index.ejs", { posts: blogPosts });
 });
 
+// About page route
 app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
+// Create post page route
 app.get("/createPost", (req, res) => {
   res.render("createPost.ejs");
 });
 
+// Create post route
 app.post("/createPost", (req, res) => {
   try {
     const { postTitle, postContent } = req.body;
@@ -44,38 +48,58 @@ app.post("/createPost", (req, res) => {
       postContent: postContent,
     };
     blogPosts.push(newPost);
-    // console.log("post created successfully");
-    // setTimeout(() => {
     res.redirect("/");
-    // }, 2000);
   } catch (err) {
     console.error(err);
   }
 });
 
+// Contact page route
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
-
+// Delete post route
 app.post("/deletePost", (req, res) => {
-  //find index of item with id to delete
-  // const postToDelete = req.params.postId;
-  // console.log(postIndex);
   const postToDelete = req.body.postId;
 
   const postIndex = blogPosts.findIndex((post) => post.postId == postToDelete);
-  // console.log(typeof (blogPosts[0].postId))
-  console.log(postIndex)
+  console.log(postIndex);
 
   if (postIndex !== -1) {
     blogPosts.splice(postIndex, 1);
-    // console
-    res.redirect("/")
+    res.redirect("/");
   } else {
     console.error(`Item with ID ${req.params.postId} was not found.`);
   }
+});
+
+// Edit post route
+app.get("/editPost/:postId", (req, res) => {
+  const postToEdit = req.params.postId;
+  const postIndex = blogPosts.findIndex((post) => post.postId === postToEdit);
+
+  if (postIndex !== -1) {
+    res.render("editPost.ejs", {
+      postId: blogPosts[postIndex].postId,
+      postTitle: blogPosts[postIndex].postTitle,
+      postContent: blogPosts[postIndex].postContent,
+    });
+  }
+});
+
+app.post("/editPost/:postId", (req, res) => {
+  const postToEdit = req.params.postId;
+  const updatedPostDeets = req.body;
+
+  const postIndex = blogPosts.findIndex((post) => post.postId === postToEdit);
+
+  if (postIndex !== -1) {
+    blogPosts[postIndex] = { ...updatedPostDeets, postId: postToEdit };
+    res.redirect("/");
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

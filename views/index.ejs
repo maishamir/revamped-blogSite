@@ -5,18 +5,25 @@
 
   <div class="allPosts">
     <% posts.forEach(post => { %>
-    <div class="post" id="<%= post.postId %>">
-      <p class="post__title"><%= post.postTitle %></p>
-      <p class="post__content"><%= post.postContent%></p>
+    <div class="postCard">
+      <div class="post" id="<%= post.postId %>">
+        <p class="post__title"><%= post.postTitle %></p>
+        <p class="post__content"><%= post.postContent%></p>
+      </div>
+      <div class="postButtons">
+        <a href="/editPost/<%=post.postId%>" class="postButtons--edit">
+          <span class="material-symbols-outlined">edit</span>
+        </a>
 
-      <div class="buttons">
         <form action="/deletePost" method="post">
-        <!-- <form action="/deletePost/<%=post.postId%>" method="post"> -->
           <input type="hidden" value="<%=post.postId%>" name="postId" />
-          <button type="submit">X</button>
+          <button type="submit" class="postButtons--delete">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
         </form>
       </div>
     </div>
+
     <hr />
     <% }) %>
   </div>

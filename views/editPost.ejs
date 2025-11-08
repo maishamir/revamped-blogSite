@@ -1,21 +1,28 @@
 <%- include("partials/header.ejs") %>
 <main class="createPost">
   <h1>Create a post</h1>
+
   <a href="/"><--</a>
-  <form action="/createPost" method="POST" class="createPost__form">
+  <% if (locals.postId && locals.postTitle && locals.postContent) { %>
+  <form action="/editPost/<%=postId%>" method="POST" class="createPost__form">
     <input
       type="text"
       name="postTitle"
       id="postTitle"
       placeholder="Post title"
+      value="<%= postTitle %>"
     />
     <textarea
       name="postContent"
       id="postContent"
       placeholder="Write your post here..."
       rows="10"
-    ></textarea>
-    <button type="submit" class="createPost__form-button">Create post</button>
+    >
+<%= postContent %>
+      </textarea
+    >
+    <button type="submit" class="createPost__form-button">Save post</button>
   </form>
+  <% } %>
 </main>
 <%- include("partials/footer.ejs") %>

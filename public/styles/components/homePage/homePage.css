@@ -15,11 +15,63 @@ h1 {
   gap: 2rem;
   width: 75vw;
 }
-.allPosts hr {
-  border: 0.75px solid rgb(151, 149, 149);
+.post {
+  width: 80%;
 }
-
 .post__title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+
+.postCard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.postButtons--delete {
+  background-color: transparent;
+  border: none;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.postButtons--delete .material-symbols-outlined {
+  color: rgb(223, 2, 2);
+  font-size: 30px;
+}
+.postButtons--edit {
+  border: none;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 300ms;
+  text-decoration: none;
+  cursor: pointer;
+}
+.postButtons--edit:hover {
+  background-color: rgb(4, 115, 206);
+}
+.postButtons--edit:hover .material-symbols-outlined {
+  color: white;
+}
+.postButtons--edit .material-symbols-outlined {
+  color: rgb(4, 105, 188);
+  font-size: 1.5rem;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }/*# sourceMappingURL=homePage.css.map */
